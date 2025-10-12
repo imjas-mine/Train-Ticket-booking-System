@@ -22,16 +22,28 @@ public class UserBookingService {
         userList = mapper.readValue(file, new TypeReference<List<User>>() {
         });
     }
-    public Boolean loginUser(){
-        Optional<User> foundUser=userList.stream().filter(user1 -> {
-            return user1.getName().equals(user.getName()) && UserServiceUtil.checkPassword(user.getPassword(),user1.getPassword())
+
+    public UserBookingService() throws Exception {
+        loadUsers();
+    }
+
+    public List<User> loadUsers() throws Exception {
+        File file = new File(USERS_PATH);
+        userList = mapper.readValue(file, new TypeReference<List<User>>() {
+        });
+        return userList;
+    }
+
+    public Boolean loginUser() {
+        Optional<User> foundUser = userList.stream().filter(user1 -> {
+            return user1.getName().equals(user.getName()) && UserServiceUtil.checkPassword(user.getPassword(), user1.getPassword());
         }).findFirst();
         return foundUser.isPresent();
 
     }
 
-    public Boolean signUp(User user){
-        try{
+    public Boolean signUp(User user) {
+        try {
             userList.add(user);
             saveUserListToFile();
             return true;
@@ -42,10 +54,11 @@ public class UserBookingService {
     }
 
     private void saveUserListToFile() throws IOException {
-        File usersFile=new File(USERS_PATH);
-        mapper.writeValue(usersFile,userList);
+        File usersFile = new File(USERS_PATH);
+        mapper.writeValue(usersFile, userList);
     }
-    public void fetchBooking(){
+
+    public void fetchBooking() {
         user.printTickets();
     }
 }
