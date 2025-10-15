@@ -67,8 +67,13 @@ public class User {
     }
 
     public void printTickets() {
-        for (int i = 0; i < ticketsBooked.size(); i++) {
-            System.out.println(ticketsBooked.get(i).getTicketInfo());
+        if (ticketsBooked.isEmpty()) {
+            System.out.println("No tickets booked");
+        } else {
+
+            for (Ticket ticket : ticketsBooked) {
+                System.out.println(ticket.getTicketInfo());
+            }
         }
     }
 }

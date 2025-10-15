@@ -72,21 +72,18 @@ public class App {
                     break;
 
                 case 4:
-                    System.out.println("Type Your source station");
+                    System.out.println("Type Your Source Station");
                     String sourceStation = sc.next();
-                    System.out.println("Type Your destination station");
+                    System.out.println("Type Your Destination Station");
                     String destinationStation = sc.next();
                     List<Train> trainList = null;
-//                    try {
-//                        trainList = userBookingService.getTrains(sourceStation, destinationStation);
-//                    } catch (IOException e) {
-//                        throw new RuntimeException(e);
-//                    }
+                    trainList = userBookingService.getTrains(sourceStation, destinationStation);
                     int index = 1;
                     for (Train train : trainList) {
                         System.out.println(index + "Train ID: " + train.getTrainID());
                         for (Map.Entry<String, String> entry : train.getStationTime().entrySet()) {
                             System.out.println(index + "Station : " + entry.getKey() + " Time: " + entry.getValue());
+                            index++;
                         }
                     }
                 case 5:

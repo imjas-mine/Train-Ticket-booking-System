@@ -1,7 +1,7 @@
 [
   {
     "train_id": "bacs",
-    "train_no": 12345,
+    "train_no": 125,
     "seats": [
       [
         0,
@@ -42,14 +42,14 @@
       "delhi": "13:50:00"
     },
     "stations": [
-      "Toronto",
-      "Germany",
+      "toronto",
+      "germany",
       "delhi"
     ]
   },
   {
-    "train_id": "bacs",
-    "train_no": 12345,
+    "train_id": "abcd",
+    "train_no": 123,
     "seats": [
       [
         0,
@@ -90,8 +90,8 @@
       "delhi": "13:50:00"
     },
     "stations": [
-      "Toronto",
-      "Germany",
+      "toronto",
+      "germany",
       "delhi"
     ]
   }

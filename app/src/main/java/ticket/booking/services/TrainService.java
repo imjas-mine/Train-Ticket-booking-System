@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class TrainService {
 
-    private static final String TRAIN_DB_PATH = "../localDB/trains.json";
+    private static final String TRAIN_DB_PATH = "app/src/main/java/ticket/booking/localdb/trains.json";
     private Train train;
     private ObjectMapper mapper = new ObjectMapper();
     private List<Train> trainList;
