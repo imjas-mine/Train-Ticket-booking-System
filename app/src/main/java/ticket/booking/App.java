@@ -13,16 +13,20 @@ import java.util.*;
 public class App {
 
     public static void main(String[] args) {
-        System.out.println("RUnning the train booking system");
+        System.out.println("Running the train booking system");
         Scanner sc = new Scanner(System.in);
         int option = 0;
 
-        UserBookingService userBookingService;
+        UserBookingService userBookingService = null;
         try {
-
             userBookingService = new UserBookingService();
         } catch (Exception e) {
-            System.out.println("Error in UserBookingService");
+            System.out.println("Error in UserBookingService" + e.getMessage());
+            e.printStackTrace();
+        }
+        if (userBookingService == null) {
+            System.out.println("Booking service not available. Exiting...");
+            return;
         }
 
         while (option != 7) {
@@ -69,7 +73,12 @@ public class App {
                     String sourceStation = sc.next();
                     System.out.println("Type Your destination station");
                     String destinationStation = sc.next();
-                    List<Train> trainList = userBookingService.getTrains(sourceStation, destinationStation);
+                    List<Train> trainList = null;
+//                    try {
+//                        trainList = userBookingService.getTrains(sourceStation, destinationStation);
+//                    } catch (IOException e) {
+//                        throw new RuntimeException(e);
+//                    }
                     int index = 1;
                     for (Train train : trainList) {
                         System.out.println(index + "Train ID: " + train.getTrainID());
@@ -77,6 +86,8 @@ public class App {
                             System.out.println(index + "Station : " + entry.getKey() + " Time: " + entry.getValue());
                         }
                     }
+                case 5:
+                    System.out.println("Enter Your Seat Number");
 
             }
 
