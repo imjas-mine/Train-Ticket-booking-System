@@ -58,7 +58,10 @@ public class App {
                     User userToLogin = new User(nameTOLogin, passwordTOLogin, UserServiceUtil.hashPassword(passwordTOLogin), new ArrayList<>(), UUID.randomUUID().toString());
                     try {
                         userBookingService = new UserBookingService(userToLogin);
+                        System.out.println(userBookingService.loginUser());
                     } catch (Exception ex) {
+                        System.out.println("error while trying to login: " + ex);
+
                         return;
                     }
                     break;
