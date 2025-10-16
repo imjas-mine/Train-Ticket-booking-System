@@ -67,7 +67,7 @@ public class Train {
     }
 
     public String getTrainInfo() {
-        return String.format("Train ID: %s Train NUmber: %s", trainID, trainNum);
+        return String.format("Train ID: %s Train Number: %s", trainID, trainNum);
     }
 
 }

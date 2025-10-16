@@ -66,7 +66,6 @@ public class UserBookingService {
         }
         Optional<User> userFetched = userList.stream().filter(user1 -> user1.getName().equals(user.getName()) && UserServiceUtil.checkPassword(user1.getPassword(), user.getHashPassword())).findFirst();
         if (userFetched.isPresent()) {
-
             userFetched.get().printTickets();
         }
     }
@@ -78,5 +77,31 @@ public class UserBookingService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public boolean bookSeat(Train train, int row, int seat) {
+        try {
+            TrainService trainService = new TrainService();
+            List<List<Integer>> seats = train.getSeats();
+            if (row >= 0 && row < seats.size() && seat >= 0 && seats.get(row).size() >= seat) {
+                if (seats.get(row).get(seat) == 0) {
+                    seats.get(row).set(seat, 1);
+                    train.setSeats(seats);
+                    trainService.addTrain(train);
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        } catch (IOException e) {
+            return false;
+
+        }
+    }
+
+    public List<List<Integer>> fetchSeats(Train train) {
+        return train.getSeats();
     }
 }

@@ -28,7 +28,7 @@ public class App {
             System.out.println("Booking service not available. Exiting...");
             return;
         }
-
+        Train trainSelectedForBooking = new Train();
         while (option != 7) {
             System.out.println("Please enter your choice");
             System.out.println("1. Sign UP");
@@ -87,8 +87,29 @@ public class App {
                         }
                     }
                 case 5:
-                    System.out.println("Enter Your Seat Number");
-
+                    System.out.println("Select a seat out of these");
+                    List<List<Integer>> seats = userBookingService.fetchSeats(trainSelectedForBooking);
+                    for (List<Integer> seat : seats) {
+                        for (Integer i : seat) {
+                            System.out.print(i + " ");
+                        }
+                        System.out.println();
+                    }
+                    System.out.println("Select the seat by typing the row and column");
+                    System.out.println("Enter the row");
+                    int row = sc.nextInt();
+                    System.out.println("Enter the column");
+                    int col = sc.nextInt();
+                    System.out.println("Booking your seat....");
+                    Boolean booked = userBookingService.bookSeat(trainSelectedForBooking, row, col);
+                    if (booked == Boolean.TRUE) {
+                        System.out.println("Seat has been booked");
+                    } else {
+                        System.out.println("Seat has been not booked");
+                    }
+                    break;
+                default:
+                    break;
             }
 
 

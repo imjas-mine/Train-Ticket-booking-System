@@ -7,7 +7,10 @@ import ticket.booking.entities.Train;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class TrainService {
 
@@ -34,4 +37,35 @@ public class TrainService {
 
         return sourceIndex >= 0 && destinationIndex >= 0 && sourceIndex < destinationIndex;
     }
+
+    public void addTrain(Train newTrain) {
+        Optional<Train> existingTrain = trainList.stream().filter(train -> train.getTrainID().equals(newTrain.getTrainID())).findFirst();
+        if (existingTrain.isPresent()) {
+            updateTrain(newTrain);
+        } else {
+            trainList.add(newTrain);
+            saveTrainToFile();
+        }
+    }
+
+    private void saveTrainToFile() {
+        try {
+            mapper.writeValue(new File(TRAIN_DB_PATH), trainList);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void updateTrain(Train updatedTrain) {
+        OptionalInt index = IntStream.range(0, trainList.size()).filter(i -> trainList.get(i).getTrainID().equalsIgnoreCase(updatedTrain.getTrainID())).findFirst();
+        if (index.isPresent()) {
+            trainList.set(index.getAsInt(), updatedTrain);
+            saveTrainToFile();
+        } else {
+            addTrain(updatedTrain);
+        }
+    }
+
 }
