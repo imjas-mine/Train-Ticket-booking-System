@@ -60,7 +60,15 @@ public class UserBookingService {
     }
 
     public void fetchBooking() {
-        user.printTickets();
+        if (user == null) {
+            System.out.println("Please login first.");
+            return;
+        }
+        Optional<User> userFetched = userList.stream().filter(user1 -> user1.getName().equals(user.getName()) && UserServiceUtil.checkPassword(user1.getPassword(), user.getHashPassword())).findFirst();
+        if (userFetched.isPresent()) {
+
+            userFetched.get().printTickets();
+        }
     }
 
     public List<Train> getTrains(String source, String destination) {
