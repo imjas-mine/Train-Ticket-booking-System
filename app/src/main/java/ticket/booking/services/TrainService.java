@@ -55,7 +55,6 @@ public class TrainService {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
-
     }
 
     public void updateTrain(Train updatedTrain) {

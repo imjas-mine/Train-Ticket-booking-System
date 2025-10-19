@@ -1,16 +1,1 @@
-[
-  {
-    "name": "Jasmine",
-    "password": "Jasmine@123#",
-    "hash_password": "$2a$10$ikvhA2S.21N0XJoB9Ck2Iu4hk2kZbdVc4RUVhGKfk1MWqZP9ILDHW",
-    "tickets_booked": [],
-    "user_id": "9e0efafd-e35d-4927-9b26-005f31ee7700"
-  },
-  {
-    "name": "jass",
-    "password": "jass",
-    "hash_password": "$2a$10$c.6xrej5il4v3lth2rL6ZOYpiLYLjbF.wiBswoxty3u20Myiy354.",
-    "tickets_booked": [],
-    "user_id": "aee028df-37e0-4f81-aebf-621667714d3e"
-  }
-]
+[{"name":"Jasmine","password":"Jasmine@123#","hash_password":"$2a$10$ikvhA2S.21N0XJoB9Ck2Iu4hk2kZbdVc4RUVhGKfk1MWqZP9ILDHW","tickets_booked":[],"user_id":"9e0efafd-e35d-4927-9b26-005f31ee7700"},{"name":"jass","password":"jass","hash_password":"$2a$10$c.6xrej5il4v3lth2rL6ZOYpiLYLjbF.wiBswoxty3u20Myiy354.","tickets_booked":[],"user_id":"aee028df-37e0-4f81-aebf-621667714d3e"},{"name":"7","password":"7","hash_password":"$2a$10$OpTkzOxHthfTTL5fQ8JTKejesOwpVjBQPIiA9HMymiR7JuwM7Qgb6","tickets_booked":[],"user_id":"c445ca22-5af0-400a-afe2-a99523b90f2f"}]

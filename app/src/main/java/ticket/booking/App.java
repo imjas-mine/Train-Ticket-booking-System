@@ -83,9 +83,12 @@ public class App {
                         System.out.println(index + "Train ID: " + train.getTrainID());
                         for (Map.Entry<String, String> entry : train.getStationTime().entrySet()) {
                             System.out.println(index + "Station : " + entry.getKey() + " Time: " + entry.getValue());
-                            index++;
                         }
+                        index++;
                     }
+                    System.out.println("Select a train by typing 1,2,3..");
+                    trainSelectedForBooking = trainList.get(sc.nextInt() - 1);
+                    break;
                 case 5:
                     System.out.println("Select a seat out of these");
                     List<List<Integer>> seats = userBookingService.fetchSeats(trainSelectedForBooking);
@@ -108,6 +111,8 @@ public class App {
                         System.out.println("Seat has been not booked");
                     }
                     break;
+                case 6:
+                    System.out.println("Cancel Booking");
                 default:
                     break;
             }
