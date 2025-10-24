@@ -2,6 +2,7 @@ package ticket.booking.services;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import ticket.booking.entities.Ticket;
 import ticket.booking.entities.Train;
 import ticket.booking.entities.User;
 import ticket.booking.util.UserServiceUtil;
@@ -9,6 +10,7 @@ import ticket.booking.util.UserServiceUtil;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -64,7 +66,7 @@ public class UserBookingService {
             System.out.println("Please login first.");
             return;
         }
-        Optional<User> userFetched = userList.stream().filter(user1 -> user1.getName().equals(user.getName()) && UserServiceUtil.checkPassword(user1.getPassword(), user.getHashPassword())).findFirst();
+        Optional<User> userFetched = userList.stream().filter(user1 -> user1.getName().equals(user.getName()) && UserServiceUtil.checkPassword(user.getPassword(), user1.getHashPassword())).findFirst();
         if (userFetched.isPresent()) {
             userFetched.get().printTickets();
         }
@@ -79,7 +81,7 @@ public class UserBookingService {
         }
     }
 
-    public boolean bookSeat(Train train, int row, int seat) {
+    public boolean bookSeat(Train train, int row, int seat, String source, String destination) {
         try {
             TrainService trainService = new TrainService();
             List<List<Integer>> seats = train.getSeats();
@@ -88,7 +90,19 @@ public class UserBookingService {
                     seats.get(row).set(seat, 1);
                     train.setSeats(seats);
                     trainService.addTrain(train);
-                    return true;
+
+
+                    Optional<User> foundUser = userList.stream().filter(u -> u.getName().equals(user.getName())).findFirst();
+                    if (foundUser.isPresent()) {
+                        User currentUser = foundUser.get();
+                        String ticketId = "T" + System.currentTimeMillis();
+                        Date travelDate = new Date();
+                        Ticket ticket = new Ticket(ticketId, currentUser.getUserID(), travelDate, source, destination, train);
+                        currentUser.getTicketsBooked().add(ticket);
+                        saveUserListToFile();
+                        user.setTicketsBooked(currentUser.getTicketsBooked());
+                        return true;
+                    }
                 } else {
                     return false;
                 }
@@ -97,9 +111,10 @@ public class UserBookingService {
             }
         } catch (IOException e) {
             return false;
-
         }
+        return false;
     }
+
 
     public List<List<Integer>> fetchSeats(Train train) {
         return train.getSeats();

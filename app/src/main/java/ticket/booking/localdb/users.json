@@ -1,1 +1,244 @@
-[{"name":"Jasmine","password":"Jasmine@123#","hash_password":"$2a$10$ikvhA2S.21N0XJoB9Ck2Iu4hk2kZbdVc4RUVhGKfk1MWqZP9ILDHW","tickets_booked":[],"user_id":"9e0efafd-e35d-4927-9b26-005f31ee7700"},{"name":"jass","password":"jass","hash_password":"$2a$10$c.6xrej5il4v3lth2rL6ZOYpiLYLjbF.wiBswoxty3u20Myiy354.","tickets_booked":[],"user_id":"aee028df-37e0-4f81-aebf-621667714d3e"},{"name":"7","password":"7","hash_password":"$2a$10$OpTkzOxHthfTTL5fQ8JTKejesOwpVjBQPIiA9HMymiR7JuwM7Qgb6","tickets_booked":[],"user_id":"c445ca22-5af0-400a-afe2-a99523b90f2f"}]
+[
+  {
+    "name": "Jasmine",
+    "password": "Jasmine@123#",
+    "hash_password": "$2a$10$ikvhA2S.21N0XJoB9Ck2Iu4hk2kZbdVc4RUVhGKfk1MWqZP9ILDHW",
+    "tickets_booked": [
+      {
+        "source": "germany",
+        "destination": "delhi",
+        "train": {
+          "seats": [
+            [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ]
+          ],
+          "stations": [
+            "toronto",
+            "germany",
+            "delhi"
+          ],
+          "train_id": "abcd",
+          "train_no": "123",
+          "station_times": {
+            "bangalore": "13:50:00",
+            "jaipur": "13:50:00",
+            "delhi": "13:50:00"
+          }
+        },
+        "ticket_id": "T1761280588383",
+        "user_id": "aee458df-37e0-4f81-jkbf-621667714d3e",
+        "date_of_travel": 1761280588406
+      },
+      {
+        "source": "germany",
+        "destination": "delhi",
+        "train": {
+          "seats": [
+            [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ]
+          ],
+          "stations": [
+            "toronto",
+            "germany",
+            "delhi"
+          ],
+          "train_id": "abcd",
+          "train_no": "123",
+          "station_times": {
+            "bangalore": "13:50:00",
+            "jaipur": "13:50:00",
+            "delhi": "13:50:00"
+          }
+        },
+        "ticket_id": "T1761281151119",
+        "user_id": "9e0efafd-e35d-4927-9b26-005f31ee7700",
+        "date_of_travel": 1761281151127
+      },
+      {
+        "source": "germany",
+        "destination": "delhi",
+        "train": {
+          "seats": [
+            [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ]
+          ],
+          "stations": [
+            "toronto",
+            "germany",
+            "delhi"
+          ],
+          "train_id": "abcd",
+          "train_no": "123",
+          "station_times": {
+            "bangalore": "13:50:00",
+            "jaipur": "13:50:00",
+            "delhi": "13:50:00"
+          }
+        },
+        "ticket_id": "T1761281190621",
+        "user_id": "9e0efafd-e35d-4927-9b26-005f31ee7700",
+        "date_of_travel": 1761281190621
+      },
+      {
+        "source": "delhi",
+        "destination": "toronto",
+        "train": {
+          "seats": [
+            [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "stations": [
+            "delhi",
+            "germany",
+            "toronto"
+          ],
+          "train_id": "bacs",
+          "train_no": "125",
+          "station_times": {
+            "bangalore": "13:50:00",
+            "jaipur": "13:50:00",
+            "delhi": "13:50:00"
+          }
+        },
+        "ticket_id": "T1761281222421",
+        "user_id": "9e0efafd-e35d-4927-9b26-005f31ee7700",
+        "date_of_travel": 1761281222421
+      }
+    ],
+    "user_id": "9e0efafd-e35d-4927-9b26-005f31ee7700"
+  },
+  {
+    "name": "jass",
+    "password": "jass",
+    "hash_password": "$2a$10$c.6xrej5il4v3lth2rL6ZOYpiLYLjbF.wiBswoxty3u20Myiy354.",
+    "tickets_booked": [],
+    "user_id": "aee028df-37e0-4f81-aebf-621667714d3e"
+  },
+  {
+    "name": "7",
+    "password": "7",
+    "hash_password": "$2a$10$OpTkzOxHthfTTL5fQ8JTKejesOwpVjBQPIiA9HMymiR7JuwM7Qgb6",
+    "tickets_booked": [],
+    "user_id": "c445ca22-5af0-400a-afe2-a99523b90f2f"
+  }
+]

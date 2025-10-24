@@ -72,7 +72,7 @@ public class User {
         } else {
 
             for (Ticket ticket : ticketsBooked) {
-                System.out.println(ticket.getTicketInfo());
+                System.out.println(ticket.ticketSummary());
             }
         }
     }

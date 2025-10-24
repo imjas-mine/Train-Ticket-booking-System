@@ -76,7 +76,7 @@ public class Ticket {
         this.train = train;
     }
 
-    public String getTicketInfo() {
+    public String ticketSummary() {
         return String.format("Ticket ID: %s belongs to User %s from %s to %s on %s", ticketID, userID, source, destination, dateOfTravel);
     }
 }
