@@ -117,12 +117,13 @@ public class App {
                     }
                     break;
                 case 6:
-                    System.out.println("Cancel Booking");
+                    System.out.println("Enter the ticketId you want to cancel:");
+                    String ticketId = sc.next();
+                    userBookingService.cancelBooking(ticketId);
+                    
                 default:
                     break;
             }
-
-
         }
     }
 }

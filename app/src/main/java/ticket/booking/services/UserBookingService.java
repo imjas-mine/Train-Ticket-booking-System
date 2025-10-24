@@ -119,4 +119,32 @@ public class UserBookingService {
     public List<List<Integer>> fetchSeats(Train train) {
         return train.getSeats();
     }
+
+    public void cancelBooking(String ticketId) {
+        if (user == null) {
+            System.out.println("Please login first.");
+            return;
+        }
+        Optional<User> foundUser = userList.stream().filter(u -> u.getName().equals(user.getName())).findFirst();
+        if (foundUser.isPresent()) {
+            User currentUser = foundUser.get();
+
+
+            if (currentUser.getTicketsBooked().isEmpty()) {
+                System.out.println("No tickets booked");
+                return;
+            }
+            for (Ticket ticket : currentUser.getTicketsBooked()) {
+                if (ticket.getTicketID().equals(ticketId)) {
+                    currentUser.getTicketsBooked().remove(ticket);
+                    System.out.println(ticket.getTicketID() + " has been cancelled.");
+                    return;
+                }
+
+            }
+            System.out.println(ticketId + " is not booked for this user");
+        }
+
+
+    }
 }
